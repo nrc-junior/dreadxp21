@@ -17,44 +17,6 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 2
---- !u!114 &-7397703905171241847
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  postExposure:
-    m_OverrideState: 1
-    m_Value: -0.3
-  contrast:
-    m_OverrideState: 1
-    m_Value: 25.6
-    min: -100
-    max: 100
-  colorFilter:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  hueShift:
-    m_OverrideState: 1
-    m_Value: 0
-    min: -180
-    max: 180
-  saturation:
-    m_OverrideState: 1
-    m_Value: -21.7
-    min: -100
-    max: 100
 --- !u!114 &-5990654338702894727
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -114,7 +76,7 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 48.8
+    m_Value: 56.47
     min: 0.1
   aperture:
     m_OverrideState: 1
@@ -158,9 +120,9 @@ MonoBehaviour:
   - {fileID: -5066720924104217875}
   - {fileID: -9153183755517196419}
   - {fileID: -5990654338702894727}
-  - {fileID: 6093726081357287116}
-  - {fileID: -7397703905171241847}
---- !u!114 &6093726081357287116
+  - {fileID: 9144691295249358560}
+  - {fileID: 3432445006066817933}
+--- !u!114 &3432445006066817933
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,36 +131,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
-  m_Name: ShadowsMidtonesHighlights
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
   active: 1
   m_AdvancedMode: 0
-  shadows:
+  postExposure:
     m_OverrideState: 1
-    m_Value: {x: 0.63999397, y: 0.7660499, z: 1, w: -0.37643218}
-  midtones:
+    m_Value: 0
+  contrast:
     m_OverrideState: 1
-    m_Value: {x: 0.5901235, y: 0.69709176, z: 1, w: 0.098199666}
-  highlights:
+    m_Value: 12.23
+    min: -100
+    max: 100
+  colorFilter:
     m_OverrideState: 0
-    m_Value: {x: 0.84389913, y: 0.8964381, z: 1, w: 0.016366867}
-  shadowsStart:
+    m_Value: {r: 0.2783019, g: 1, b: 0.6676389, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  hueShift:
     m_OverrideState: 0
     m_Value: 0
-    min: 0
-  shadowsEnd:
-    m_OverrideState: 0
-    m_Value: 0.3
-    min: 0
-  highlightsStart:
-    m_OverrideState: 0
-    m_Value: 0.55
-    min: 0
-  highlightsEnd:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
+    min: -180
+    max: 180
+  saturation:
+    m_OverrideState: 1
+    m_Value: 18.31
+    min: -100
+    max: 100
 --- !u!114 &7942183062885604083
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -250,4 +211,43 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
+    min: 0
+--- !u!114 &9144691295249358560
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.71089053, z: 0.86986977, w: 0.08431703}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 0.8872178, y: 0.7744358, z: 1, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  shadowsEnd:
+    m_OverrideState: 0
+    m_Value: 0.3
+    min: 0
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 0.55
+    min: 0
+  highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
     min: 0
