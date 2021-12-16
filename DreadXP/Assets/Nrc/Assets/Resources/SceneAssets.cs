@@ -18,7 +18,7 @@ public class SceneAssets : MonoBehaviour {
     //audios
     [System.Serializable]
     public class SoundAudioClip {
-        public AudioClip audioClip;
+        public AudioClip[] audioClip = new AudioClip[1];
         public SoundManager.Sound sound;
 
     }

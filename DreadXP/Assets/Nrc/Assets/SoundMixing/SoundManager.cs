@@ -5,7 +5,9 @@ using UnityEngine;
 public static class SoundManager{
     public enum  Sound {
         inventory_change,
-        inventory_hide
+        inventory_hide,
+        hit,
+        softhit,
     }
     public static void PlaySound(Sound sound) {
         GameObject soundGo = new GameObject("Sound");
@@ -20,7 +22,7 @@ public static class SoundManager{
     static AudioClip GetAudioClip(Sound sound){
         foreach (SceneAssets.SoundAudioClip clip in SceneAssets.i.soundClips) {
             if (clip.sound == sound) {
-                return clip.audioClip;
+                return clip.audioClip.Length > 1 ? clip.audioClip[Random.Range(0,clip.audioClip.Length)] : clip.audioClip[0];
             }
         }
         

@@ -25,10 +25,8 @@ public class Moving : MonoBehaviour
     float offset;
     float time;
 
-    void Update()
-    {
-        if (!sit)
-        {
+    void Update() {
+        if (!sit) {
             #region moviment
 
             Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
