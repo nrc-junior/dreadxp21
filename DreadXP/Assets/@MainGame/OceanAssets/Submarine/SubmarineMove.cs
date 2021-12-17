@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
@@ -90,10 +91,23 @@ public class SubmarineMove : MonoBehaviour {
     //diver move
     Rigidbody rb_diver;
     
+    //sounds
+    SoundManager.Track welding;
+    SoundManager.Track propeller;
+    SoundManager.Track leak;
+    SoundManager.Track scuba_mask;
+    private float hiss_sign = 0;
+    public Transform[] hiss;
+    
+    //ambience
+    private bool on_ocean = true;
+    SoundManager.Track ocean;
+    
     void Start() {
         obj = submarine = transform.GetChild(0);
-        diver = new Diver(transform.GetChild(1).GetComponent<Renderer>().material,
-                          transform.GetChild(1).gameObject);
+        diver = new Diver(transform.GetChild(1).GetComponent<Renderer>().material, 
+            transform.GetChild(1).gameObject, 
+            transform.GetChild(1).GetComponent<MeshRenderer>());
         
         sub_trigger = obj.gameObject.AddComponent<SubmarineTrigger>();
         rb = GetComponent<Rigidbody>();
@@ -104,16 +118,48 @@ public class SubmarineMove : MonoBehaviour {
         hor_desacelation_rate = 1 / hor_stability_factor;
         ver_stabilization_rate = 1 / ver_stability_factor;
         
+        welding ??= SoundManager.MakeTrack(SoundManager.Sound.welding,0, diver.gameobject.transform, true, 2);
+        
+        propeller ??= SoundManager.MakeTrack(SoundManager.Sound.propeller_fast,0, submarine, true, dst:45);
+        scuba_mask ??= SoundManager.MakeTrack(SoundManager.Sound.mask,0, default,true);
+        leak ??= SoundManager.MakeTrack(SoundManager.Sound.leakpressure, submarine,true,3);
+        ocean ??= SoundManager.MakeTrack(SoundManager.Sound.underwater, default,true);
+        if (on_ocean) {
+             StartCoroutine(ocean.fade(.5f));
+        }
     }
     
     
     private Transform submarine;
+    private float depth;
+    
     void Update() {
+        depth = transform.position.y;
+        ocean.src.volume = Mathf.Lerp(0.01f,.5f,Mathf.InverseLerp(-130, -10, depth));
+        
         Vector2 inputs = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
+        if (hiss_sign != Mathf.Sign(thrust.y)) {
+            hiss_sign = Mathf.Sign(thrust.y);
+            SoundManager.PlaySound(SoundManager.Sound.hiss, -1,hiss[hiss_sign<0?0:1].position,4);
+        }
+        
+        if (collisions > 1) {
+            StartCoroutine(leak.fade(1));
+        } else {
+            StartCoroutine(leak.fade(0));
+        }
+        
+        if(Mathf.Abs(thrust.x) > 1) {
+            print(max_hor_speed);
+            StartCoroutine(propeller.fade(Mathf.Lerp(0,1,max_hor_speed/14), 0.2f));
+        }else {
+            StartCoroutine(propeller.fade(0, 0.1f));
+        }
+        
         if (player_controlling) {
             if (focus_reached) {
                 if (cam_clock > 1) {
+                    StartCoroutine(scuba_mask.fade());
                     focus_reached = false;
                     cam_clock = 0;
                     return;
@@ -128,12 +174,9 @@ public class SubmarineMove : MonoBehaviour {
             }
 
             if (Input.GetKeyDown(leave) && !focus_reached) {
-
-                diver.gameobject.SetActive(true);
+                diver.render.enabled = true;
                 diver.gameobject.transform.position = obj.transform.position + new Vector3(0.84f, 6.47f, -2.373f);
                 player_controlling = false;
-
-                rb.isKinematic = true;
                 return;
             }
             
@@ -145,11 +188,13 @@ public class SubmarineMove : MonoBehaviour {
             }
         
         }else {
+            if (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f) Thrusting(default);    
             
             if (Input.GetKeyDown(leave) && sub_trigger.player_on_trigger) {
-                diver.gameobject.SetActive(false);
+                diver.render.enabled = false;
                 player_controlling = true;
-                rb.isKinematic = false;
+                StartCoroutine(welding.fade());
+                
                 if(collisions == 0) collisions = 1;
                 if (max_hor_speed > 14)
                 {
@@ -158,8 +203,12 @@ public class SubmarineMove : MonoBehaviour {
                 }
                 return;
             }
+     
             #region  skin
             repairing = collisions > 1 && sub_trigger.player_on_trigger && Input.GetKey(repair_key);
+
+            StartCoroutine(repairing ? welding.fade(1) : welding.fade(0));
+
 
             if (!repairing) { // swim/idle
                 if (Time.time > time) {
@@ -169,7 +218,12 @@ public class SubmarineMove : MonoBehaviour {
                 } 
 
             } else { // repair
-                if(Input.GetKeyDown(repair_key)) repair_clock = Time.time + 5;
+                //SoundManager.PlaySound(SoundManager.Sound.welding);
+
+
+                if (Input.GetKeyDown(repair_key)) {
+                    repair_clock = Time.time + 5;
+                }
                 
                 if (Time.time > time) {
                     time = Time.time + .25f;
@@ -190,7 +244,9 @@ public class SubmarineMove : MonoBehaviour {
             //cam
             #region cam
             if (!focus_reached) {
-                if (cam_clock > 1) {
+                if (cam_clock > 1)
+                {
+                    StartCoroutine(scuba_mask.fade(.5f));
                     focus_reached = true;
                     cam_clock = 0;
                     return;
@@ -236,7 +292,7 @@ public class SubmarineMove : MonoBehaviour {
     }
 
     void OnCollisionEnter (Collision other) {
-        if(!player_controlling) return;
+        //if(!player_controlling) return;
         
         if (other.relativeVelocity.magnitude > 4) {
             thrust = Vector2.zero;
@@ -261,7 +317,7 @@ public class SubmarineMove : MonoBehaviour {
 
         };
     }
-    private void DirectionTurns(Vector2 inputs) {
+    private void DirectionTurns(Vector2 inputs = default) {
         if (!turning) {
             if (inputs.x == 0) {
                 turn_factor = 0;
@@ -319,8 +375,10 @@ public class SubmarineMove : MonoBehaviour {
         obj.localRotation = Quaternion.Lerp(obj.localRotation, Quaternion.Euler(euler.x, angle, euler.z), rotation );
     }
     private void Thrusting(Vector2 inputs) {
-        thrust += new Vector2(Mathf.Abs(thrust.x + inputs.x) < max_hor_speed ? inputs.x : 0, 
+        if (player_controlling) {
+            thrust += new Vector2(Mathf.Abs(thrust.x + inputs.x) < max_hor_speed ? inputs.x : 0, 
             Mathf.Abs(thrust.y + inputs.y) < max_ver_speed ? inputs.y : 0);
+        }
         
         if(Mathf.Abs(inputs.x) > 0) {
             desacelerating = false;

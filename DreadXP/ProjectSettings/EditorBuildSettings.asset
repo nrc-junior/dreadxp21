@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/@MainGame/Scenes/MainScene.unity
-    guid: cdf11719fbb30754e87bdc47aa152005
+    path: Assets/@MainGame/Scenes/Ocean/OceanMainScene.unity
+    guid: 990cb72c995f6fb4bbe2496e968abf23
   m_configObjects: {}

@@ -7,10 +7,10 @@ public class SceneIlluminationController : MonoBehaviour {
     public Transform submarine; //NRC: todo: Get from static class element
     public float surface = 0;
     public float bottom = -30;
-    
-        
-    [Space(10)]
-    [Header("Caustic reflection Color:")]
+
+
+    [Space(10)] [Header("Caustic reflection Color:")]
+    public GameObject caustic_obj;
     public Material causticShader;
     public Color caustic_surface_color = new Color32(136, 201, 255, 1);
     public Color caustic_bottom_color = new Color32(255, 244, 214, 1);
@@ -51,6 +51,11 @@ public class SceneIlluminationController : MonoBehaviour {
     private float new_depth = 65445;
     void Update() {
         float depth = Mathf.InverseLerp(surface, bottom, submarine.position.y);
+        if (depth >= 1) {
+            caustic_obj.SetActive(false);
+        }else if(depth < 1 && !caustic_obj.activeInHierarchy){
+            caustic_obj.SetActive(true);    
+        }
         
         if (depth == new_depth) return;
 
