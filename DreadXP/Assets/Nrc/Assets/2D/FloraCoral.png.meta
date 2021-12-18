@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: f659fd0c2daaaa947b8fa23bc2b1991d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3878531799332507210
+    second: FloraCoral_0
+  - first:
+      213: 3974195928154037960
+    second: FloraCoral_2
+  - first:
+      213: -7105020372055720793
+    second: FloraCoral_3
+  - first:
+      213: 3153196368159233949
+    second: FloraCoral_4
+  - first:
+      213: -7150942773434041625
+    second: FloraCoral_5
+  - first:
+      213: 1316776050414230076
+    second: FloraCoral_6
+  - first:
+      213: -6344969540089699626
+    second: FloraCoral_7
+  - first:
+      213: -3524674782043071743
+    second: FloraCoral_8
+  - first:
+      213: 5549441202199138907
+    second: FloraCoral_9
+  - first:
+      213: -5136125473276499024
+    second: FloraCoral_10
+  - first:
+      213: 3191354383535769515
+    second: FloraCoral_11
+  - first:
+      213: 5143684688643763021
+    second: FloraCoral_12
+  - first:
+      213: 8686672356004149261
+    second: FloraCoral_14
+  - first:
+      213: 3568237804609724616
+    second: FloraCoral_15
+  - first:
+      213: -7821143409312110495
+    second: FloraCoral_19
+  - first:
+      213: 8890694975194661633
+    second: FloraCoral_20
+  - first:
+      213: -1071326739086875969
+    second: FloraCoral_21
+  - first:
+      213: -6427506239546671034
+    second: FloraCoral_22
+  - first:
+      213: 7341572926592522671
+    second: FloraCoral_25
+  - first:
+      213: 9170226597621048467
+    second: FloraCoral_26
+  - first:
+      213: -5242340820501056997
+    second: FloraCoral_28
+  - first:
+      213: 4277987575123884275
+    second: FloraCoral_29
+  - first:
+      213: 4480082745847473742
+    second: FloraCoral_30
+  - first:
+      213: 3585139098668080917
+    second: FloraCoral_32
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FloraCoral_0
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 339
+        width: 56
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1babab0efac2ac0800000000000000
+      internalID: -3878531799332507210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_2
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 338
+        width: 51
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cedc65f32e272730800000000000000
+      internalID: 3974195928154037960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_3
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 194
+        width: 159
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac74b99d95e56d90800000000000000
+      internalID: -7105020372055720793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 302
+        width: 55
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97de27f36762cb20800000000000000
+      internalID: 3153196368159233949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_5
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 324
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea31545f6fb2cc90800000000000000
+      internalID: -7150942773434041625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_6
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 310
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a9ead57d0264210800000000000000
+      internalID: 1316776050414230076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_7
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 314
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2a74402d322f7a0800000000000000
+      internalID: -6344969540089699626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_8
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 215
+        width: 83
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b9b83d5f6d51fc0800000000000000
+      internalID: -3524674782043071743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_9
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 269
+        width: 46
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b521ff60f53930d40800000000000000
+      internalID: 5549441202199138907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_10
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 201
+        width: 71
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbe48b2811d8b8b0800000000000000
+      internalID: -5136125473276499024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_11
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 52
+        width: 101
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7090f37e7f94c20800000000000000
+      internalID: 3191354383535769515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_12
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 134
+        width: 98
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b2a3fc8f9026740800000000000000
+      internalID: 5143684688643763021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_14
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 50
+        width: 63
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0835dbdb724d8870800000000000000
+      internalID: 8686672356004149261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_15
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 50
+        width: 63
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0e1e1c06de48130800000000000000
+      internalID: 3568237804609724616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_19
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 85
+        width: 93
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1686096e187b57390800000000000000
+      internalID: -7821143409312110495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_20
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 111
+        width: 102
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10304da99f7126b70800000000000000
+      internalID: 8890694975194661633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_21
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 58
+        width: 76
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb26956c102e121f0800000000000000
+      internalID: -1071326739086875969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_22
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 54
+        width: 73
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640c6382129ecc6a0800000000000000
+      internalID: -6427506239546671034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_25
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 64
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa91c2eeda182e560800000000000000
+      internalID: 7341572926592522671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_26
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 49
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394aa0d2180334f70800000000000000
+      internalID: 9170226597621048467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_28
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 59
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1231828cc67f37b0800000000000000
+      internalID: -5242340820501056997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_29
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 61
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f83bc8a8077e5b30800000000000000
+      internalID: 4277987575123884275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_30
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 50
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46689655837c2e30800000000000000
+      internalID: 4480082745847473742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloraCoral_32
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 51
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f997ee309f0c130800000000000000
+      internalID: 3585139098668080917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
