@@ -11,7 +11,7 @@ public class TypewriterEffect : MonoBehaviour
     private readonly List<Punctuation> punctuations = new List<Punctuation>()
     {
         new Punctuation(new HashSet<char>(){'.','!', '?'}, 0.8f),
-        new Punctuation(new HashSet<char>(){',',';', ':'}, 0.8f)
+        new Punctuation(new HashSet<char>(){',',';', ':'}, 0.6f)
     };
     private float waitTime;
 

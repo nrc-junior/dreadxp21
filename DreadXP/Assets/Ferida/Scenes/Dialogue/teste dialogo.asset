@@ -15,9 +15,12 @@ MonoBehaviour:
   dialogue:
   - Qual o seu nome?
   responses:
-  - responseText: sim
+  - responseText: joao
     dialogueObject: {fileID: 0}
-  - responseText: nao
+  - responseText: junico
     dialogueObject: {fileID: 0}
+  timeToMove: 0
+  placeToMove: {x: 20, y: 20, z: 20}
+  agent: {fileID: 0}
   picture: {fileID: 0}
   background: {fileID: 0}

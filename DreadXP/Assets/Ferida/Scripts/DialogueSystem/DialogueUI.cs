@@ -59,8 +59,7 @@ public class DialogueUI : MonoBehaviour
         }
         else
         {
-
-            CloseDialogueBox();
+            CloseDialogueBox(dialogueObject);
         }
  
     }
@@ -79,10 +78,16 @@ public class DialogueUI : MonoBehaviour
     }
 
 
-    public void CloseDialogueBox()
+    public void CloseDialogueBox(DialogueObject dialogueObject = null)
     {
         IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        
+        if (dialogueObject != null){
+            print(dialogueObject.PlaceToMove);
+        
+        }
+        
     }
 }

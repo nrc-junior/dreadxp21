@@ -8,6 +8,12 @@ public class DialogueObject : ScriptableObject
 {
     [SerializeField] [TextArea] private string[] dialogue;
     [SerializeField] private Response[] responses;
+    [Header("NavMesh Configs")]
+    [SerializeField] private bool timeToMove;
+    [SerializeField] private Vector3 placeToMove;
+    [SerializeField] private GameObject agent;
+
+    [Header("Arts")]
     [SerializeField] private Sprite picture;
     [SerializeField] private Sprite background;
 
@@ -17,6 +23,9 @@ public class DialogueObject : ScriptableObject
 
     public Response[] Responses => responses;
 
+    public Vector3 PlaceToMove => placeToMove;
+    public bool TimeToMove => timeToMove;
+    public GameObject Agent => agent;
     public Sprite Picture => picture;
     public Sprite Background => background;
 }
