@@ -6,15 +6,15 @@ using UnityEngine;
 public class Moving : MonoBehaviour {
     public ShipAssets assets;
     private Actor player;
-    public float Speed = 10f;
-    public Rigidbody rb;
-    Vector3 mov;
-    [HideInInspector] public bool freeze;
-    
+    private bool right;
     bool walking;
     private bool _lock1;
 
-    private bool right;
+    [HideInInspector] public bool freeze;
+    public float Speed = 10f;
+    public Rigidbody rb;
+    Vector3 mov;
+
 
     private void Start() {
        player = assets.GetActor(Person.Amelia);
@@ -55,12 +55,15 @@ public class Moving : MonoBehaviour {
         if (walking && !_lock1) {
             _lock1 = true;
             player.SetAnimation(Animations.walk);
+            SoundManager.PlaySound(SoundManager.Sound.footstep, default, transform.position);
         }else if(!walking && _lock1){
             _lock1 = walking;
             player.SetAnimation(Animations.idle);
         }
 
     }
+    
+
     void FixedUpdate() {
         rb.MovePosition(rb.position + mov * Speed * Time.fixedDeltaTime);
     }

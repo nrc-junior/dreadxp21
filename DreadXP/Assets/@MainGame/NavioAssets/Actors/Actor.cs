@@ -12,10 +12,20 @@ public class Actor : MonoBehaviour {
     private Vector2 uv;
     private float ms;
     public Animations start;
+
+    [Space(10)] 
+    [Header("Sound Effects")]
+    public AudioSource theme;
+    
+    [Header("Sound Effects")]
+    public float delay = .16f;
+    private float clock =0;
     
     [Space(10)]
     public List<Profile.Handler> animations;
     private Profile.Handler current;
+
+    
     
     private void Awake() {
         skin = GetComponent<Renderer>().material;
@@ -38,8 +48,30 @@ public class Actor : MonoBehaviour {
             uv.y = uv.y < current.end.y ? uv.y + actor.offset.y : current.start.y;
         }
         skin.mainTextureOffset = new Vector2(uv.x, uv.y);
+
+        switch (current.name) {
+            default: break;
+            case Animations.walk:
+                Play(SoundManager.Sound.footstep);                
+                break;
+            
+            case Animations.mop:
+                Play(SoundManager.Sound.mopping, true);
+                break;
+            
+            case Animations.fix:
+                Play(SoundManager.Sound.fixing);
+                break;
+        }
     }
 
+    void Play(SoundManager.Sound sound, bool use_clip_time = false) {
+        if (Time.time < clock) return;
+        float clipLength = SoundManager.PlaySound(sound, -1, transform.position);
+        clock = Time.time + (use_clip_time ? clipLength + delay : delay);
+        
+    }
+    
     /// <summary>
     /// Anime é uma animação do Enum Animations, se veja o script Profile para ver o enum.
     /// Current recebe o valor do dicionario contido em actor, atribuido na inspetor do menu.

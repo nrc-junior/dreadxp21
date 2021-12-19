@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
     public enum Person {
+        undefined,
         Aaron,
         Antoine,
         Demeter,
@@ -21,7 +22,8 @@ using UnityEngine;
         fix,
         note,
         coffe,
-        insanity
+        insanity,
+        mop
     }
 
 [System.Serializable]

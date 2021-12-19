@@ -14,8 +14,12 @@ public static class SoundManager{
         underwater,
         mask,
         hiss,
-        AbyssMusic
-        
+        AbyssMusic,
+        footstep,
+        mopping,
+        door,
+        fixing
+       
     }
 
     private static float default_volume = 1;
@@ -87,8 +91,8 @@ public static class SoundManager{
 
     
 
-    public static void PlaySound(Sound sound,  float vol = -1, Vector3 pos = default, float dst = 1) {
-        if (!canPlay(sound)) return;
+    public static float PlaySound(Sound sound,  float vol = -1, Vector3 pos = default, float dst = 1) {
+        if (!canPlay(sound)) return -1;
         if (vol == -1) vol = default_volume;
 
         GameObject soundGo = new GameObject("Sound");
@@ -105,8 +109,9 @@ public static class SoundManager{
         }else {
             audioSource.PlayOneShot(clip);
         }
-        
+
         GameObject.Destroy(soundGo, clip.length);
+        return clip.length;
     }
 
     static bool canPlay(Sound sound) {
