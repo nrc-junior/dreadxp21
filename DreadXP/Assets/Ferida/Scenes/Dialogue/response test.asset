@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: response test
   m_EditorClassIdentifier: 
   dialogue:
-  - Muito legal, seu nome SIm
+  - Muito legal, seu nome junico
   responses:
-  - responseText: 
-    dialogueObject: {fileID: 0}
+  - responseText: d
+    dialogueObject: {fileID: 11400000, guid: 8a154470283897cb39a57d005f165d3b, type: 2}
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}

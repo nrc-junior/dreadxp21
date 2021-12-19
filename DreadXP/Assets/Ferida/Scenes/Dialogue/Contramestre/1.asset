@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073edb367c97fe439d1056a5d4aa860, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Hi, I'm Amelia, the head of research team
+  - Nice to meet you Amelia
+  - I'm Patrick the boatswain
+  - What are your functions in the ship?
+  - I am the boatswain, if things get messy, i clean it
+  pictures: []
+  backgrounds: []
+  responses:
+  - responseText: I paid a lot for it, I won't settle for less
+    dialogueObject: {fileID: 11400000, guid: f1868ed35dd26ab36801760f8491e5e8, type: 2}
+  - responseText: Oh, thanks for your services
+    dialogueObject: {fileID: 11400000, guid: d4ae952b7131efc589df3d211816f954, type: 2}
+  timeToMove: 0
+  placeToMove: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  picture: {fileID: 0}
+  background: {fileID: 0}
+  responseBoxSize: {x: 450, y: 30}

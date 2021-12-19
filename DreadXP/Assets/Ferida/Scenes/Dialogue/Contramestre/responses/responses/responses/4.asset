@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4073edb367c97fe439d1056a5d4aa860, type: 3}
-  m_Name: teste dialogo
+  m_Name: 4
   m_EditorClassIdentifier: 
   dialogue:
-  - Qual o seu nome?
-  responses:
-  - responseText: joao
-    dialogueObject: {fileID: 11400000, guid: c54b3d8eb8c272018b51e12e3899bc09, type: 2}
-  - responseText: junico
-    dialogueObject: {fileID: 11400000, guid: c54b3d8eb8c272018b51e12e3899bc09, type: 2}
+  - Dam she's crazy, good girl
+  - What you mean crazy?
+  - Brazillian...
+  - Okay...
+  pictures: []
+  responses: []
   timeToMove: 0
-  placeToMove: {x: 20, y: 20, z: 20}
+  placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}
   picture: {fileID: 0}
   background: {fileID: 0}

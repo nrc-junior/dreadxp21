@@ -25,12 +25,14 @@ public class ResponseHandler : MonoBehaviour
         this.responseEvents = responseEvents;
     }
 
-    public void ShowResponses(Response[] responses)
+    public void ShowResponses(Response[] responses, DialogueObject dialogueObject)
     {
-        float responseBoxHeight = 0;
+        float responseBoxWidth = responseButtonTemplate.sizeDelta.x;
+        float responseBoxHeight = responseButtonTemplate.sizeDelta.y;
 
         for (int i = 0; i < responses.Length; i++)
         {
+            print(dialogueObject.ResponseBoxSize.x);
             Response response = responses[i];
             int responseIndex = i;
 
@@ -41,10 +43,16 @@ public class ResponseHandler : MonoBehaviour
             responseButton.GetComponent<Button>().onClick.AddListener(() => OnPickedResponse(response, responseIndex));
 
             tempResponseButtons.Add(responseButton);
-
-            responseBoxHeight += responseButtonTemplate.sizeDelta.y;
+            //print(responseButton.GetComponent<TMP_Text>().position.x);
+            if(dialogueObject.ResponseBoxSize.x != 0 && dialogueObject.ResponseBoxSize.y != 0){ 
+                responseBoxWidth = dialogueObject.ResponseBoxSize.x;
+                responseBoxHeight += dialogueObject.ResponseBoxSize.y;
+            }
+            else{
+                responseBoxHeight += responseButtonTemplate.sizeDelta.y;
+            }
         }
-        responseBox.sizeDelta = new Vector2(responseBox.sizeDelta.x, responseBoxHeight);
+        responseBox.sizeDelta = new Vector2(responseBoxWidth, responseBoxHeight);
         responseBox.gameObject.SetActive(true);
     }
 

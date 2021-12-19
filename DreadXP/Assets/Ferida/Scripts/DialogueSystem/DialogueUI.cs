@@ -41,6 +41,14 @@ public class DialogueUI : MonoBehaviour
 
         for(int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
+            if (dialogueObject.Pictures.Length >= i+1 && dialogueObject.Pictures[i] != null){
+                picture.sprite = dialogueObject.Pictures[i];
+            }
+            if (dialogueObject.Backgrounds.Length >= i+1 && dialogueObject.Backgrounds[i] != null){
+                background.sprite = dialogueObject.Backgrounds[i];
+            }
+            
+            print(i);
             IsOpen = true;
             string dialogue = dialogueObject.Dialogue[i];
             yield return RunTypingEffect(dialogue);
@@ -55,7 +63,7 @@ public class DialogueUI : MonoBehaviour
 
         if (dialogueObject.HasResponses)
         {
-            responseHandler.ShowResponses(dialogueObject.Responses);
+            responseHandler.ShowResponses(dialogueObject.Responses, dialogueObject);
         }
         else
         {

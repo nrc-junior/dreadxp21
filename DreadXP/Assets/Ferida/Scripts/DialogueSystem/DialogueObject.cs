@@ -7,6 +7,8 @@ using System.Collections;
 public class DialogueObject : ScriptableObject
 {
     [SerializeField] [TextArea] private string[] dialogue;
+    [SerializeField] private Sprite[] pictures;
+    [SerializeField] private Sprite[] backgrounds;
     [SerializeField] private Response[] responses;
     [Header("NavMesh Configs")]
     [SerializeField] private bool timeToMove;
@@ -17,6 +19,7 @@ public class DialogueObject : ScriptableObject
     [SerializeField] private Sprite picture;
     [SerializeField] private Sprite background;
 
+    [SerializeField] private Vector2 responseBoxSize;
     public string[] Dialogue => dialogue;
 
     public bool HasResponses => Responses != null && Responses.Length > 0;
@@ -27,5 +30,8 @@ public class DialogueObject : ScriptableObject
     public bool TimeToMove => timeToMove;
     public GameObject Agent => agent;
     public Sprite Picture => picture;
+    public Sprite[] Pictures => pictures;
+    public Sprite[] Backgrounds => backgrounds;
+    public Vector2 ResponseBoxSize => responseBoxSize;
     public Sprite Background => background;
 }
