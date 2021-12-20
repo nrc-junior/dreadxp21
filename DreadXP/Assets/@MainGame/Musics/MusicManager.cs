@@ -39,15 +39,24 @@ public class Theme {
     private AudioSource src;
     private AudioClip other;
     private float intensity;
-    public Theme(GameObject actor, AudioSource src, AudioClip clip, AudioClip other = default) {
+    private float multiplier;
+
+    public float factor {
+        get => multiplier;
+        set => multiplier = value;
+    }
+
+    public Theme(GameObject actor, AudioSource src, AudioClip clip, float factor, AudioClip other = default) {
         this.actor = actor;
         this.src = src;
         this.src.clip = clip;
         this.other = other;
+        this.src.loop = true;
+        multiplier = factor;
         
-        src.volume = natural_intensity;
-        src.Play();
-        src.Pause();
+        this.src.volume = natural_intensity;
+        this.src.Play();
+        this.src.Pause();
     }
 
     public void Pause() => src.Pause();
@@ -75,6 +84,7 @@ public class MusicManager : MonoBehaviour {
         public AudioClip clip;
         public AudioClip alternative;
         public musics tag;
+        [Range(0.05f, 1)] public float factor = 1; 
     }
 
     public List<Music> musics; 
@@ -94,7 +104,7 @@ public class MusicManager : MonoBehaviour {
             foreach (var actor in actors) {
                 var actorNome = actor.GetComponent<Actor>().actor.nome;
                 if (actorNome != music.theme) continue;
-                themes[actorNome] = new Theme(actor, new GameObject(actor.name + " soundsrc").AddComponent<AudioSource>(), music.clip);
+                themes[actorNome] = new Theme(actor, new GameObject(actor.name + " soundsrc").AddComponent<AudioSource>(), music.clip, music.factor);
                 break;
             }
         }
@@ -109,19 +119,27 @@ public class MusicManager : MonoBehaviour {
         float dst = 10;
         foreach (var person in themes.Keys) {
             var actor = themes[person];
-            if ((dst = actor.distanceTo(amelia.position)) < 15) {
-                float intensity = Mathf.InverseLerp(15, 7, dst);
-                actor.SetIntensity(intensity);
+            if ((actor.distanceTo(amelia.position)) < 15) {
+
+
+                if (!hearing.Contains(actor)) {
+                    actor.time = amelia.time;
+                    actor.Play();
+                    hearing.Add(actor);
+                } 
                 
+                var pessoas = hearing.Count;
+                float spreading = 1;
                 
-                //float decreaser = Mathf.Lerp(1f, 0.6f,hearing.Count * 0.125f);
+                foreach (var t in hearing) {
+                    var intensity = Mathf.InverseLerp(15, 7, t.distanceTo(amelia.position));
+                    spreading += (t.factor*intensity) / pessoas;
+                }
                 
-                if(hearing.Contains(actor)) continue;
-                actor.time = amelia.time;
-                actor.Play();
-                hearing.Add(actor);
-                
-                //foreach (var person2 in themes.Keys) themes[person2].SetIntensity();
+                foreach (var t in hearing) {
+                    var intensity = Mathf.InverseLerp(15, 7, t.distanceTo(amelia.position));
+                    t.SetIntensity(Mathf.InverseLerp(0, spreading,t.factor * intensity/pessoas));
+                }
                 
             } else if (hearing.Contains(actor)) {
                 actor.SetIntensity(0);

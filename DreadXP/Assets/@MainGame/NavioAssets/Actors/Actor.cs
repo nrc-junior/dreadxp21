@@ -52,22 +52,22 @@ public class Actor : MonoBehaviour {
         switch (current.name) {
             default: break;
             case Animations.walk:
-                Play(SoundManager.Sound.footstep);                
+                Play(SoundManager.Sound.footstep,vol: .6f, max_dst: 10, mode: AudioRolloffMode.Custom);                
                 break;
             
             case Animations.mop:
-                Play(SoundManager.Sound.mopping, true);
+                Play(SoundManager.Sound.mopping,0.3f , true, max_dst: 10, mode: AudioRolloffMode.Custom);
                 break;
             
             case Animations.fix:
-                Play(SoundManager.Sound.fixing);
+                Play(SoundManager.Sound.fixing, vol: .6f ,max_dst: 10, dst:1, mode: AudioRolloffMode.Custom );
                 break;
         }
     }
 
-    void Play(SoundManager.Sound sound, bool use_clip_time = false) {
+    void Play(SoundManager.Sound sound, float vol = -1, bool use_clip_time = false, float dst = 1, float max_dst = 50, AudioRolloffMode mode = AudioRolloffMode.Logarithmic) {
         if (Time.time < clock) return;
-        float clipLength = SoundManager.PlaySound(sound, -1, transform.position);
+        float clipLength = SoundManager.PlaySound(sound, vol, transform.position, dst: dst,  max_dst: max_dst, mode: mode);
         clock = Time.time + (use_clip_time ? clipLength + delay : delay);
         
     }

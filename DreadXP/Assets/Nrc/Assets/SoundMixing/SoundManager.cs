@@ -91,7 +91,7 @@ public static class SoundManager{
 
     
 
-    public static float PlaySound(Sound sound,  float vol = -1, Vector3 pos = default, float dst = 1) {
+    public static float PlaySound(Sound sound,  float vol = -1, Vector3 pos = default, float dst = 1, float max_dst = 500f, AudioRolloffMode mode = AudioRolloffMode.Logarithmic) {
         if (!canPlay(sound)) return -1;
         if (vol == -1) vol = default_volume;
 
@@ -104,6 +104,8 @@ public static class SoundManager{
             soundGo.transform.position = pos;
             audioSource.spatialBlend = 1;
             audioSource.minDistance = dst;
+            audioSource.maxDistance = max_dst;
+            audioSource.rolloffMode = mode;
             audioSource.clip = clip;
             audioSource.Play();
         }else {

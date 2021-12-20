@@ -32,7 +32,8 @@ public enum Room {
     corredor_main,
     escadaria,
     corredor_superior,
-    leme
+    leme,
+    proa
 }
 
 public class RoomHandler : MonoBehaviour {

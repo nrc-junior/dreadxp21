@@ -18,32 +18,17 @@ public class Test : MonoBehaviour {
     private Camera cam;
     private float chegada;
     public float tempo_para_chegar = 2; //segundos
-    
-    void Start() => cam = Camera.main;
-    void Update(){
-        if(temFita){ // o player ja selecionou uma fita, então tem que exibir 
-            if(!renderFita){ // ainda n está renderizando 
-                renderFita = true;
-      
-                fita_selecionada = azul ? fita_azul : fita_vermelha;
-                fita_selecionada.SetActive(true);
-            }// com a fita ativa na tela, da pra começar a mexer ela.
 
-            var mira  = cam.ScreenToWorldPoint(Input.mousePosition);
-            var pos = fita_selecionada.transform.position;
-            if (chegada < 1) {
-                chegada += Time.deltaTime * (1 / tempo_para_chegar);
-            }
-            fita_selecionada.transform.position = Vector3.Lerp(pos, mira, chegada);
-        }
-
-        if(Input.GetMouseButton(0)){ //clico com botão esquerdo
-        
-            print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
-
+    void Start() {
+        //0,233333
+        //0,266666
+        //0,1
+        print(Mathf.InverseLerp(0, 0.599999f,0.233333f));
+        print(Mathf.InverseLerp(0, 0.599999f,0.266666f));
+        print(Mathf.InverseLerp(0, 0.599999f,0.1f));
     }
-
+    
+  
     void ASDA() {
         if (Input.GetKeyDown(KeyCode.E)) {
             print(src.time);
