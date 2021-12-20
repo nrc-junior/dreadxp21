@@ -7,8 +7,18 @@ public class Moving : MonoBehaviour {
     public Room isIn = Room.undefined;
 
     void Awake() => DataManager.playerIsIn = isIn;
-    
-    
+
+    /*
+    Dialogue activator
+    */
+    [SerializeField] private DialogueUI dialogueUI;
+
+    public DialogueUI DialogueUI => dialogueUI;
+
+    public IInteractable_3D IInteractable_3D {get; set;}
+
+    //=========================
+
     public ShipAssets assets;
     private Actor player;
     private bool right;
@@ -26,7 +36,10 @@ public class Moving : MonoBehaviour {
     }
 
     void Update() {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            IInteractable_3D?.Interact(this);
+        }
         Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (dir.x < 0 && right) {
             right = false;
