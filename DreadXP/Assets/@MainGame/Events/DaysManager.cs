@@ -29,15 +29,30 @@ public class DaysManager : MonoBehaviour {
                 EventsData.Teleport(Person.Gisele, new Vector3(100.08f,2.609f,-32.75f));
                 EventsData.SetAnimation(Person.Gisele, Animations.idle);
 
+                // Todo Jerome acompanha, a pesquisadora, durante todo o primeiro dia
                 EventsData.Teleport(Person.Patrick, new Vector3(-164.96f,2.60f,149.91f));
 
-                // Todo Jerome acompanha, a pesquisadora, durante todo o primeiro dia
+                break;
+            
+            case 2:
+                EventsData.Teleport(Person.Demeter, new Vector3(53.930f,2.6097f,-31.1399f));
                 break;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        throw new NotImplementedException();
     }
 
     public static void day1_IvanaArrives() {
         EventsData.Teleport(Person.Ivana, new Vector3(-105.98f,2.60f,-11.09f));
         // Todo criar target para navmesh de Ivana aqui 
     }
+    
+    public static void PermitSubmarine(bool permission = true) {
+        DataManager.submarine = true;
+    }
+    
+    
 }

@@ -19,6 +19,7 @@ public class EventsData : MonoBehaviour {
         puppet[actor].position = pos;
         print("teleported "+ actor);
     }
+    
 
     /// <summary>
     /// seta um dialogo, para um NPC, usando a classe DialogueActivator.
@@ -34,5 +35,6 @@ public class EventsData : MonoBehaviour {
     /// <param name="anim">enum Animations = nome da animação, se não tiver = Idle</param>
     public static void SetAnimation(Person name, Animations anim) => _actor[name].SetAnimation(anim);
 
+    //public static void Authorize(bool authorization)
     
 }

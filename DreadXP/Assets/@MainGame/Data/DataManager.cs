@@ -9,7 +9,9 @@ public class DataManager : MonoBehaviour {
    public static int todayIsDay = 1;
    
    public static bool canSleep = false;
+   public static bool submarine = false;
 
    public static Room playerIsIn = Room.undefined;
+   
 
 }
