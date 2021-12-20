@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073edb367c97fe439d1056a5d4aa860, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Ok, bring it on
+  pictures: []
+  backgrounds: []
+  responses:
+  - responseText: What do you think about the Captain
+    dialogueObject: {fileID: 11400000, guid: 02278309d2e1ae1c4a5696107d098a7e, type: 2}
+  - responseText: "What do you think about the 1\xBA oficcer"
+    dialogueObject: {fileID: 11400000, guid: b5986bd7133c6ccabaf44c4a15889563, type: 2}
+  - responseText: What do you think about the boatswain
+    dialogueObject: {fileID: 11400000, guid: 436b25a8d8b63072f84a53b9d8652f49, type: 2}
+  - responseText: What do you think about the cooker
+    dialogueObject: {fileID: 11400000, guid: 1ba5701596cb6c3af8a146c9dca4e40b, type: 2}
+  - responseText: What do you think about the engineer
+    dialogueObject: {fileID: 11400000, guid: 0e511c8c358b3e5d48b8df5de186292c, type: 2}
+  - responseText: I don't have any questions...
+    dialogueObject: {fileID: 0}
+  timeToMove: 0
+  placeToMove: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  picture: {fileID: 0}
+  background: {fileID: 0}
+  responseBoxSize: {x: 0, y: 0}

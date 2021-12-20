@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - Muito legal, seu nome junico
+  pictures: []
+  backgrounds: []
   responses:
-  - responseText: d
+  - responseText: joao
+    dialogueObject: {fileID: 11400000, guid: 8a154470283897cb39a57d005f165d3b, type: 2}
+  - responseText: junico
     dialogueObject: {fileID: 11400000, guid: 8a154470283897cb39a57d005f165d3b, type: 2}
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}
   picture: {fileID: 0}
   background: {fileID: 0}
+  responseBoxSize: {x: 0, y: 0}

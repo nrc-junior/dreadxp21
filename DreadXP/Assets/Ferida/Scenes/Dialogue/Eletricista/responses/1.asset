@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073edb367c97fe439d1056a5d4aa860, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Gisele Almeida, you know when I was a kid my dream was to be like you ma'am,
+    I got in to a great school and end up here.
+  - "So if you need anything, really anything I would love to help, count on me seriously
+    you really want to help\u2026 I\u2019m babbling, aren\u2019t I?g."
+  pictures: []
+  backgrounds: []
+  responses:
+  - responseText: Yeah, you were
+    dialogueObject: {fileID: 11400000, guid: eaf8db3d8f45d3471a64682a0b268e85, type: 2}
+  - responseText: A little, but it's fine
+    dialogueObject: {fileID: 0}
+  timeToMove: 0
+  placeToMove: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  picture: {fileID: 0}
+  background: {fileID: 0}
+  responseBoxSize: {x: 0, y: 0}

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073edb367c97fe439d1056a5d4aa860, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Hi, you should be the captain right
+  - Yes, Captain Aaron Hoffman, at your service ma'am
+  - Nice to meet you, captain
+  - Nice to meet you, Madan.
+  - "This is Ivana Pavlov; she is the 1\xB0 officer."
+  - Every time you need something you can ask her, if I am not available.
+  - "Hi Ivana, suppose you know who I am, so let\u2019s skip the formalities "
+  - Fine by me
+  - So when will we be ready to sail
+  - We are ready, but I think you should meet the crew before leaving...
+  pictures:
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
+  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
+  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 69b1fd1781d2bb750baeff2818fc9450, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
+  backgrounds: []
+  responses:
+  - responseText: Yah I think that would be a good idea
+    dialogueObject: {fileID: 11400000, guid: cbf3b4446dd7e61929476c03d111179d, type: 2}
+  - responseText: Nop, that seems like a waste of time, lest just sail
+    dialogueObject: {fileID: 11400000, guid: 641f2336547ced05abf661259cb6351c, type: 2}
+  timeToMove: 0
+  placeToMove: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  picture: {fileID: 0}
+  background: {fileID: 0}
+  responseBoxSize: {x: 600, y: 30}
