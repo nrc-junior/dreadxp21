@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+
 public enum Room {
     undefined,
     main,
@@ -48,6 +51,25 @@ public class RoomHandler : MonoBehaviour {
     public Image screen;
     private float alpha = 0;  
     private bool dark;
+
+    private Dictionary<Room, GameObject> room;
+    private void Start() {
+        room = new Dictionary<Room, GameObject>();
+        var r = FindObjectsOfType<Rooms>();
+        foreach (var trigger in r) {
+            if (room.ContainsValue(trigger.enable)) {
+                if(trigger.enable != room[trigger.room]) print("conflito existente: " + trigger.room + " " + trigger.transform.position);
+                continue; 
+            }
+            room.Add(trigger.room, trigger.enable);
+        }
+
+        Room isIn = DataManager.playerIsIn;
+        foreach (var key in room.Keys) {
+            if(isIn == key) continue;
+            room[key].SetActive(false);
+        }
+    }
 
     private void Update() {
         if(!fade) return;

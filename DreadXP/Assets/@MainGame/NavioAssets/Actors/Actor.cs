@@ -25,10 +25,17 @@ public class Actor : MonoBehaviour {
     public List<Profile.Handler> animations;
     private Profile.Handler current;
 
-    
+    [HideInInspector] public Transform puppeter; 
     
     private void Awake() {
         skin = GetComponent<Renderer>().material;
+
+        Transform parent = transform;
+        while (parent.parent != null) {
+            parent = parent.transform.parent;
+        }
+        
+        puppeter = parent;
 
         // Animações do inspetor sendo atribuidas ao dicionario: 
         actor.animations = new Dictionary<Animations, Profile.Handler>();
@@ -36,6 +43,8 @@ public class Actor : MonoBehaviour {
         current = actor.animations[start];
         ms = current.frame_duration;
         uv = current.start;
+
+        EventsData.Attribuate();
     }
 
     public void Update() {

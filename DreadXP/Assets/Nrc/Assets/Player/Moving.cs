@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Moving : MonoBehaviour {
+    public Room isIn = Room.undefined;
+
+    void Awake() => DataManager.playerIsIn = isIn;
+    
+    
     public ShipAssets assets;
     private Actor player;
     private bool right;

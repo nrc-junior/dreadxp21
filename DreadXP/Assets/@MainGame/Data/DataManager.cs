@@ -6,9 +6,10 @@ public class DataManager : MonoBehaviour {
    public static Person whoEnter = Person.undefined;
    public static Room whatRoom = Room.undefined;
    
-   public static int todayIsDay = 0;
+   public static int todayIsDay = 1;
    
    public static bool canSleep = false;
-   
-   
+
+   public static Room playerIsIn = Room.undefined;
+
 }
