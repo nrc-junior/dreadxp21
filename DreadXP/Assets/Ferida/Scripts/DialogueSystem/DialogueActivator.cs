@@ -10,16 +10,17 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         this.dialogueObject = dialogueObject;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Respawn") && other.TryGetComponent(out Player_2D player))
+        print("entrei");
+        if(other.CompareTag("Player") && other.TryGetComponent(out Moving player))
         {
             player.Interactable = this;
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Respawn") && other.TryGetComponent(out Player_2D player))
+        if(other.CompareTag("Player") && other.TryGetComponent(out Moving player))
         {
             if(player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
             {
@@ -28,7 +29,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         }  
     }
 
-    public void Interact( Player_2D player)
+    public void Interact( Moving player)
     {
         if (TryGetComponent(out DialogueResponseEvents responseEvents) && responseEvents.DialogueObject == dialogueObject)
         {

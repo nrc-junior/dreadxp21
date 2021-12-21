@@ -13,16 +13,14 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   dialogue:
-  - Morning Patrick, any problem?
-  - No miss, I'm just thinking how depth the ocean below us is, did you have any
-    idea?
+  - ARE YOU TRYING TO  KILL ME? I not gonna eat this shit.
+  - This mother fucker french of our cooker put nails on this spaghetti
+  - what? this is true?
+  - what? this is true?
+  - Obviously not, i just put my special recipe, i just spice with some screwdriver
   pictures: []
   backgrounds: []
-  responses:
-  - responseText: That doesn't right now, we don't have time for that
-    dialogueObject: {fileID: 0}
-  - responseText: That depends where you are....
-    dialogueObject: {fileID: 0}
+  responses: []
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}

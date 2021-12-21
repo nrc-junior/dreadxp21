@@ -13,16 +13,13 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   dialogue:
-  - Morning Patrick, any problem?
-  - No miss, I'm just thinking how depth the ocean below us is, did you have any
-    idea?
+  - I just spend most of my time don't mind with that thing, but now I'm a curiosity,
+    did you get it, doctor?
+  - yes, since my son burn I spend some time away from scientific
+  - so now we are here, and let's down and discovery it
   pictures: []
   backgrounds: []
-  responses:
-  - responseText: That doesn't right now, we don't have time for that
-    dialogueObject: {fileID: 0}
-  - responseText: That depends where you are....
-    dialogueObject: {fileID: 0}
+  responses: []
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}

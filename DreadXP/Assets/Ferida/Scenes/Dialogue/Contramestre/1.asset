@@ -28,6 +28,6 @@ MonoBehaviour:
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}
-  picture: {fileID: 0}
-  background: {fileID: 0}
+  picture: {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  background: {fileID: 21300000, guid: 2785ad7707503a2f894f56ed3ed88df4, type: 3}
   responseBoxSize: {x: 450, y: 30}

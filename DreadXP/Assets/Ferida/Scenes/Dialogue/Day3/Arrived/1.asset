@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   dialogue:
-  - Morning Patrick, any problem?
-  - No miss, I'm just thinking how depth the ocean below us is, did you have any
-    idea?
+  - Amalia, we arrived at the next target how you wish, I hope that is everything
+    how you want
   pictures: []
   backgrounds: []
   responses:
-  - responseText: That doesn't right now, we don't have time for that
+  - responseText: Perfectly, let's finish it.
     dialogueObject: {fileID: 0}
-  - responseText: That depends where you are....
+  - responseText: Did you don't see what is happening in the last few days?
     dialogueObject: {fileID: 0}
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}

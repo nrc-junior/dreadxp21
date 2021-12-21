@@ -13,16 +13,14 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   dialogue:
-  - Morning Patrick, any problem?
-  - No miss, I'm just thinking how depth the ocean below us is, did you have any
-    idea?
+  - Jerome, this does not make any sense, it's not coming from any animal which I
+    know, this is completely different what I see before
+  - ...
+  - Jerome!!
+  - Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn!
   pictures: []
   backgrounds: []
-  responses:
-  - responseText: That doesn't right now, we don't have time for that
-    dialogueObject: {fileID: 0}
-  - responseText: That depends where you are....
-    dialogueObject: {fileID: 0}
+  responses: []
   timeToMove: 0
   placeToMove: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}
