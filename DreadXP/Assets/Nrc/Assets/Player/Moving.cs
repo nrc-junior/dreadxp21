@@ -15,7 +15,7 @@ public class Moving : MonoBehaviour {
 
     public DialogueUI DialogueUI => dialogueUI;
 
-    public IInteractable_3D IInteractable_3D {get; set;}
+    public IInteractable Interactable {get; set;}
 
     //=========================
 
@@ -36,9 +36,10 @@ public class Moving : MonoBehaviour {
     }
 
     void Update() {
+        if (dialogueUI.IsOpen) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            IInteractable_3D?.Interact(this);
+            Interactable?.Interact(this);
         }
         Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (dir.x < 0 && right) {
