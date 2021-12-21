@@ -64,7 +64,7 @@ public class InventoryControl : MonoBehaviour {
     private RectTransform canvasRect;
 
     public GameObject player; //NRC Todo : Colocar "player" como um elemento estatico da cena. 
-    [HideInInspector] public Camera cam; // NRC TODO: caso mude a camera, talvez seja necessario alterar essa variavel tbm.
+    Camera cam; 
     
     private float scrollCD = 0;
     private float fade_time = 0;
@@ -77,6 +77,9 @@ public class InventoryControl : MonoBehaviour {
     public List<int> player_itemsID = new List<int>();
     private Item selected;
 
+    InventoryControl _inv;
+    public static InventoryControl i;
+    
     private void Awake() {
         cam = Camera.main;
         canvasRect = transform.parent.GetComponent<RectTransform>();
@@ -114,6 +117,9 @@ public class InventoryControl : MonoBehaviour {
             ui.enable_all(true);
             UpdateInvUI();
         }
+
+        i ??= this;
+        _inv = i;
     }
 
     void UpdateInventory() {

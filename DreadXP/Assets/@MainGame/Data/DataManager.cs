@@ -12,6 +12,11 @@ public class DataManager : MonoBehaviour {
    public static bool submarine = false;
 
    public static Room playerIsIn = Room.undefined;
-   
+
+   public static bool dream1complete = false;
+
+   public static bool meat_collected;
+   public static bool keys_collected;
+   public static bool artefact_collected;
 
 }
