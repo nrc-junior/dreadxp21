@@ -13,28 +13,18 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   dialogue:
-  - "I got you, you are a doom\u2019s path, you want to take us there won\u2019t
-    you?"
-  - "That\u2019s where we're going right?"
-  - Take us were Jerome, i just want to complete the research what are you talking
-    about.
-  - "O Doc, you won\u2019t gonna believe, the rock is talking to me."
-  - Okay, are you all insane, or am I?
-  - No doc, we are not insane, we are really close to a breakthrough, but I need
-    more time.
-  - More time for what?!
-  - Doc, i really need to focus on this, can we talk later?
-  - Fine, but don't lose your mind.
+  - Jerome, this does not make any sense.
+  - It's not coming from any animal which I know, this is completely different from
+    what I saw before
+  - ...
+  - Jerome!?
+  - Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn!
   pictures:
-  - {fileID: 21300000, guid: e21a67b51f3967f68b469d0f9ae7c47c, type: 3}
-  - {fileID: 21300000, guid: e21a67b51f3967f68b469d0f9ae7c47c, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
   - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
   - {fileID: 21300000, guid: e21a67b51f3967f68b469d0f9ae7c47c, type: 3}
   - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
   - {fileID: 21300000, guid: e21a67b51f3967f68b469d0f9ae7c47c, type: 3}
-  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
-  - {fileID: 21300000, guid: e21a67b51f3967f68b469d0f9ae7c47c, type: 3}
-  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
   backgrounds: []
   responses: []
   timeToMove: 0

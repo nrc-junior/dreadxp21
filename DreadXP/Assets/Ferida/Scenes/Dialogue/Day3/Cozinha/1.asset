@@ -18,7 +18,12 @@ MonoBehaviour:
   - Oh, hi doc, wanna some bite? There is cake
   - there is no cake!, are you lying?
   - The cake is not a lie!
-  pictures: []
+  pictures:
+  - {fileID: 21300000, guid: 0dc3e44a3c86c4ad2bad77314d225f56, type: 3}
+  - {fileID: 21300000, guid: b925d7f0c053db377b1e0b121b408346, type: 3}
+  - {fileID: 21300000, guid: 1d9200a1541283dd2bff2bba5bc96ed2, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 1d9200a1541283dd2bff2bba5bc96ed2, type: 3}
   backgrounds: []
   responses:
   - responseText: fine, i will eat a bit.

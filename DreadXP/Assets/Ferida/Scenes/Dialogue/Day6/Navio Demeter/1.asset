@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   dialogue:
-  - There's too much on my plate
-  - what do you mean, Cap?
-  - "I mean that this damn ship won\u2019t turn"
-  - Here, give it a try.
-  - Thanks, No!
-  pictures:
-  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
-  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
-  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
-  - {fileID: 21300000, guid: 3b72ed626e7a73e5a9e842b8dbe3bdcf, type: 3}
+  - Found you!
+  - N- Amelia! Get behind this desk, quick, they are hunting us
+  - "We don\u2019t have time. I need you to fix the engines"
+  - Are you crazy ?
+  - Maybe, but just get to work it is our only chance, we need to get out of this
+    shit show.
+  - How would we do that? Those things are trying to get a piece of my ass.
+  - Relax, just keep low, those things are not that smart.
+  - Okay, okay, i can do it, lets go.
+  - Good, find me and Ivana at the bridge once you're done.
+  pictures: []
   backgrounds: []
   responses: []
   timeToMove: 0

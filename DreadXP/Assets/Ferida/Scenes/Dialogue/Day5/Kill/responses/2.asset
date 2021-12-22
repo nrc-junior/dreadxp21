@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073edb367c97fe439d1056a5d4aa860, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Oh, hi ma\u2019am. Don't worry I\u2019ve already taken care of it."
+  - You.. you've killed him!
+  - "Of course, Ma'am I wouldn\u2019t leave it roaming around like this"
+  - "Tha fuck you\u2019re saying ?"
+  - "Calm down, ma\u2019am, it\u2019s just a rat... A big one, but a rat."
+  - A RAT?
+  - Yes, I found him over your desk and I smashed it, now i'm cleaning, it will be
+    shining in no time
+  - OMG I NEED SOME AIR
+  pictures:
+  - {fileID: 21300000, guid: 0dc3e44a3c86c4ad2bad77314d225f56, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 0dc3e44a3c86c4ad2bad77314d225f56, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 0dc3e44a3c86c4ad2bad77314d225f56, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  - {fileID: 21300000, guid: 0dc3e44a3c86c4ad2bad77314d225f56, type: 3}
+  - {fileID: 21300000, guid: c469b00e5508bacaf90bbf0195b45111, type: 3}
+  backgrounds: []
+  responses: []
+  timeToMove: 0
+  placeToMove: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  picture: {fileID: 0}
+  background: {fileID: 0}
+  responseBoxSize: {x: 0, y: 0}
