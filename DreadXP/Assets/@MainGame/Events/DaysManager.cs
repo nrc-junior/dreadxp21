@@ -25,8 +25,10 @@ public class DaysManager : MonoBehaviour {
                 if (!DataManager.keys_collected) {
                     
                     EventsData.Teleport(Person.Antoine, new Vector3(-149.52f,2.609f,176.83f));
+                    //EventsData.SetDialog(Person.Antoine, Person.Antoine.dialogues[0]);
                     //exemplo setar dialogo... EventsData.SetDialog(Person.Antoine, PegarDialogoAntoine.dialogo_dia1);
 
+                    //EventsData.SetDialog(Person.Aaron,0);
                     EventsData.Teleport(Person.Aaron, new Vector3(-81.19f, 2.6f, 325.79f));
                     EventsData.SetAnimation(Person.Aaron, Animations.watch);
                     //setar dialogo .... do aron ...
@@ -45,6 +47,7 @@ public class DaysManager : MonoBehaviour {
                     EventsData.Teleport(Person.Patrick, new Vector3(-164.96f,2.60f,149.91f));
 
                     //deixar jerome no refeitório ? no roteiro era pra ele seguir o player mas vamos ver se dá.
+                    EventsData.SetDialog(Person.Jerome,0);
                     EventsData.Teleport(Person.Jerome, new Vector3(-114.1999f,2.6097f,157.880f));
                     EventsData.SetAnimation(Person.Jerome,Animations.coffe);
                     

@@ -23,15 +23,21 @@ public class EventsData : MonoBehaviour {
         _leaveTrigger = leave_triggers;
         _table = table;
 
+
     }
 
-    public static void Attribuate() {
-        puppet = new Dictionary<Person, Transform>();
-        _actor = new Dictionary<Person, Actor>();
-        foreach (var a in FindObjectsOfType<Actor>()) {
-            puppet[a.actor.nome] = a.puppeter;
-            _actor[a.actor.nome] = a;
-        }
+    static Dictionary<Person, DialogueObject[]> dialogs;
+        public static void Attribuate() {
+            puppet = new Dictionary<Person, Transform>();
+            dialogs = new Dictionary<Person, DialogueObject[]>();
+
+            _actor = new Dictionary<Person, Actor>();
+            
+            foreach (var a in FindObjectsOfType<Actor>()) {
+                puppet[a.actor.nome] = a.puppeter;
+                dialogs[a.actor.nome] = a.dialogs; //todo: nome do array criado no actor com dialogs
+                _actor[a.actor.nome] = a;
+            }
     }
     public static void Teleport(Person actor, Vector3 pos) {
         puppet[actor].position = pos;
@@ -43,7 +49,10 @@ public class EventsData : MonoBehaviour {
     /// </summary>
     /// <param name="actor"> enum Person = nome do npc</param>
     /// <param name="dialogue">atributo do dialogo</param>
-    public static void SetDialog(Person actor, DialogueObject dialogue) => puppet[actor].GetComponent<DialogueActivator>().UpdateDialogObject(dialogue);
+    public static void SetDialog(Person actor, int idx) {
+        DialogueObject dialog = dialogs[actor][idx];
+        puppet[actor].GetComponent<DialogueActivator>().UpdateDialogObject(dialog);
+    }
 
     /// <summary>
     /// Seta animação de um NPC / Ator
@@ -86,6 +95,9 @@ public class EventsData : MonoBehaviour {
     public static void Raining(bool c) {
         foreach (var o in _chuva) o.SetActive(c);
     }
+    //public DialogueObject[] dialogues = new List<DialogueObject>();
+
+
 
     public GameObject pregos;
     private static GameObject _pregos;

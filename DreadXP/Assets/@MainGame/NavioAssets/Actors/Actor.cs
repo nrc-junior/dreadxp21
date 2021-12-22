@@ -6,7 +6,8 @@ using UnityEngine;
 public class Actor : MonoBehaviour {
     public Profile actor;
     public bool onScene;
-
+    public DialogueObject[] dialogs;
+    public static DialogueObject[] _dialogs;
     private float nextupdate;
     private Material skin;
     private Vector2 uv;
@@ -33,7 +34,7 @@ public class Actor : MonoBehaviour {
     public Room goingTo = Room.undefined;
     private void Awake() {
         skin = GetComponent<Renderer>().material;
-
+        _dialogs = dialogs;
         Transform parent = transform;
         while (parent.parent != null) {
             parent = parent.transform.parent;
