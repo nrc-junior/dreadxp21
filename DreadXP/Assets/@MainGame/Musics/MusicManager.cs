@@ -100,7 +100,7 @@ public class MusicManager : MonoBehaviour {
         themes = new Dictionary<Person, Theme>();
 
         foreach (var music in musics) {
-            if (music.theme == Person.undefined) continue;
+            if (music.theme == Person.undefined || music.theme == Person.Monster) continue;
             foreach (var actor in actors) {
                 var actorNome = actor.GetComponent<Actor>().actor.nome;
                 if (actorNome != music.theme) continue;

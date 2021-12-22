@@ -13,6 +13,9 @@ public class Actor : MonoBehaviour {
     private float ms;
     public Animations start;
 
+    private List<Waiter> cycles;
+    private float cycle_locked;
+    
     [Space(10)] 
     [Header("Sound Effects")]
     public AudioSource theme;
@@ -25,8 +28,9 @@ public class Actor : MonoBehaviour {
     public List<Profile.Handler> animations;
     private Profile.Handler current;
 
-    [HideInInspector] public Transform puppeter; 
-    
+    [HideInInspector] public Transform puppeter;
+
+    public Room goingTo = Room.undefined;
     private void Awake() {
         skin = GetComponent<Renderer>().material;
 
@@ -43,20 +47,40 @@ public class Actor : MonoBehaviour {
         current = actor.animations[start];
         ms = current.frame_duration;
         uv = current.start;
-
-        EventsData.Attribuate();
+        cycles = current.cycles;
+        
+        EventsData.Attribuate(); // atribui puppeter ao gerenciador de eventos.
     }
+    
+    
 
     public void Update() {
         nextupdate += Time.deltaTime * (1/ms);
+        
         if (nextupdate < 1) return;
         
         nextupdate = 0;
-        uv.x = uv.x < current.end.x ? uv.x + actor.offset.x : current.start.x;
-        if ((uv.x == current.start.x) && (current.start.y != current.end.y)) {
-            uv.y = uv.y < current.end.y ? uv.y + actor.offset.y : current.start.y;
+
+        if (Time.time > cycle_locked) {
+            uv.x = uv.x < current.end.x ? uv.x + actor.offset.x : current.start.x;
+            if ((uv.x == current.start.x) && (current.start.y != current.end.y)) {
+                uv.y = uv.y < current.end.y ? uv.y + actor.offset.y : current.start.y;
+            }
+
+            if (cycles != null) {
+                foreach (var hold in cycles) {
+                    if (hold.x == uv.x && hold.y == uv.y) {
+                        cycle_locked = Time.time + hold.seconds;
+                        if (hold.skip) {
+                            SetAnimation(hold.animation);
+                        }
+                        return;
+                        
+                    } 
+                }
+            }
+            skin.mainTextureOffset = new Vector2(uv.x, uv.y);
         }
-        skin.mainTextureOffset = new Vector2(uv.x, uv.y);
 
         switch (current.name) {
             default: break;

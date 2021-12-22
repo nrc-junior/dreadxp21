@@ -3,13 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DaysManager : MonoBehaviour {
+    private static SceneManager sm;
     private int day; 
     private void Start() {
         day = DataManager.todayIsDay;
         EventsData.artefact_activate(day > 2 || DataManager.artefact_collected );
         if(day >= 4 ) EventsData.SetRabiscos(true);
+        if(day > 5 || DataManager.dream2complete) EventsData.EnableBloodSymbols();
+        if(day > 5) EventsData.JeromeDead(true);
+        
+        // RoomHandler.LoadRoom += __videokitchen__; // testes
         
         switch (day) {
             case 1:
@@ -37,7 +44,9 @@ public class DaysManager : MonoBehaviour {
                     
                     EventsData.Teleport(Person.Patrick, new Vector3(-164.96f,2.60f,149.91f));
 
-                    //deixar jerome no refeitório ?
+                    //deixar jerome no refeitório ? no roteiro era pra ele seguir o player mas vamos ver se dá.
+                    EventsData.Teleport(Person.Jerome, new Vector3(-114.1999f,2.6097f,157.880f));
+                    EventsData.SetAnimation(Person.Jerome,Animations.coffe);
                     
                 } else {
                     // apos voltar com o submarino:
@@ -69,7 +78,7 @@ public class DaysManager : MonoBehaviour {
                  
                  // Jerome   (sem dialogo)
                  EventsData.Teleport(Person.Jerome, new Vector3(-114.1999f,2.6097f,157.880f));
-                 EventsData.SetAnimation(Person.Jerome,Animations.idle);
+                 EventsData.SetAnimation(Person.Jerome,Animations.coffe);
 
                 } else {
                     //após a missão de recuperar pedra misteriosa com submarino:
@@ -86,6 +95,8 @@ public class DaysManager : MonoBehaviour {
             case 3:
                 DataManager.submarine = false;
                 DataManager.canSleep = false;
+
+                DataManager.dream1complete = true;          //todo: remover isso depois <<<<<<<<<<<<<<<<<<<<<<<<
                 if (!DataManager.dream1complete) {
                     //todo: carregar cena do pesadelo 
                     
@@ -157,22 +168,67 @@ public class DaysManager : MonoBehaviour {
                 EventsData.SetRabiscos(true);
                 break;
             
-            case 5: 
+            case 5:
+                trafficlock = false;
+                DataManager.submarine = false;
+                DataManager.canSleep = false;
+                EventsData.Raining(true);
                 
+                if (!DataManager.dream2complete) {
+                    //evento do pesadelo
+                    EventsData.Inundation(true);
+                    RoomHandler.LoadRoom += __entergarage__;
+
+                } else EventsData.EnableBloodSymbols();
+                
+                //evento patrick limpando corpo do jerome
+                EventsData.JeromeDead(true);
+                EventsData.Teleport(Person.Patrick, new Vector3(-60.0800018f,2.60975766f,-35.069999f));
+                EventsData.SetAnimation(Person.Patrick, Animations.mop);
+                
+
+                //dialogo ivana e demeter oficina
+                EventsData.Teleport(Person.Ivana, new Vector3(38.930f,2.609f,1.37f));
+                EventsData.Teleport(Person.Demeter, new Vector3(40.40f,2.609f,3.970f));
+                EventsData.SetAnimation(Person.Demeter,Animations.idle);
+                break;
+            
+            
+            case 6:
+                trafficlock = false;
+                DataManager.submarine = false;
+                DataManager.canSleep = false;
+                EventsData.Raining(true);
+                EventsData.LeaveTrigger(false);
+
+                
+                EventsData.Teleport(Person.Demeter, new Vector3(-89,2.6097f,-2f));
+                EventsData.SetAnimation(Person.Demeter,Animations.idle);
+                    
+                
+                // 2 coisas, chamar em qualquer momento do dialogo -> TODO: day6_TalksToIvana()
+                // e no final do dialogo caso o player escolha fugir com o navio -> TODO: day6_PlayerAccepts
+                // e no final do dialogo caso o player escolha fugir com o submarino -> TODO: day6_PlayerRefuse
+                EventsData.Teleport(Person.Ivana, new Vector3(52.7000008f,2.60975766f,-32.1300011f));
+                
+                // fazer todas as luzes apagar
+                // mecanica de combate
+                // mecanica da lanterna
                 
                 
                 break;
         }
     }
     // ----------------- eventos dia 1
+    private static bool trafficlock;
 
     public static void day1_IvanaArrives() {
         EventsData.Teleport(Person.Ivana, new Vector3(-105.98f,2.60f,-11.09f));
+        DataManager.submarine = true;
         // Todo criar target para navmesh de Ivana aqui 
     }
 
     // ----------------- eventos dia 2
-    private static bool trafficlock;
     
     //dia 2 quando o fala com o demeter q aparece no começo no quarto.
     public static void day2_TalksToDemeter() {
@@ -184,13 +240,13 @@ public class DaysManager : MonoBehaviour {
     
     // ----------------- eventos dia 3 todo: fazer sistema da quest da demeter, e testar inventario, alem de criar os itens
     public static void day3_CaptainGivesItem() {
-        InventoryControl.i.AddItem(0); //plate
+        EventsData.GiveItem(1); //plate
     }
 
     public static void day3_DemeterGivesLocations() {
         DataManager.canSleep = true;
-        InventoryControl.i.AddItem(1); //screwdriver
-        InventoryControl.i.AddItem(2); //locations
+        EventsData.GiveItem(2); //screwdriver
+        EventsData.GiveItem(3); //locations
     }
     
     // ----------------- eventos dia 4
@@ -200,11 +256,49 @@ public class DaysManager : MonoBehaviour {
         trafficlock = true;
         RoomHandler.LoadRoom += __ivanadesapear__;
     }
+    // ----------------- s/ eventos para chamar no dia 5
+    
+    // ----------------- eventos dia 6
+    public static void day6_TalksToIvana() {
+        if (trafficlock) return;
+        RoomHandler.LoadRoom += __ivanadesapear__;
+        EventsData.LeaveTrigger(true);
+        trafficlock = true;
+    }
+
+
+    public static void day6_PlayerAccepts() {
+        //todo: colocar dialogo "Saindo do navio" da Demeter aqui
+        
+        InventoryControl.i.AddItem(5);
+    
+    }    
+    
+    public static void day6_PlayerRefuse() {
+        //todo: colocar dialogo "Final Submarino" da Demeter aqui
+
+        DataManager.submarine = true;
+
+    }
 
     
     
     
     // ----------------- eventos gerais
+
+    public static void __entergarage__()
+    {
+        if (DataManager.whatRoom == Room.garagem && DataManager.whoEnter == Person.Amelia)
+        {
+            RoomHandler.LoadRoom -= __entergarage__;
+            DataManager.dream2complete = true;
+
+            //todo: carregar cena do sonho.
+            print("vc terminou o sonho");
+            SceneManager.LoadScene(0);
+        }
+    }
+
     public static void PermitSubmarine(bool permission = true) {
         DataManager.submarine = permission;
     }
@@ -214,7 +308,7 @@ public class DaysManager : MonoBehaviour {
     }
 
     public static void __videokitchen__() {
-        if(DataManager.whoEnter == Person.Amelia && DataManager.whatRoom == Room.cozinha) {
+        if(DataManager.whoEnter == Person.Amelia && DataManager.whatRoom == Room.refeitorio) {
             EventsData.d3_playvideo();
             RoomHandler.LoadRoom -= __videokitchen__;
         }
@@ -231,9 +325,10 @@ public class DaysManager : MonoBehaviour {
     /// </summary>
     public static void __ivanadesapear__() {
         
-        EventsData.Teleport(Person.Ivana, Vector3.one*500);
+        EventsData.Teleport(Person.Ivana, new Vector3(-81.12f, 2.60f, 328.95f));
         RoomHandler.LoadRoom -= __ivanadesapear__;
 
     }
+    
     
 }

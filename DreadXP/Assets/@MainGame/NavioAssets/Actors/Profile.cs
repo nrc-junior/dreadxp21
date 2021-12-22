@@ -11,7 +11,8 @@ using UnityEngine;
         Jerome,
         Ivana,
         Gisele,
-        Amelia
+        Amelia,
+        Monster
     }
 
     public enum Animations {
@@ -23,8 +24,21 @@ using UnityEngine;
         note,
         coffe,
         insanity,
-        mop
+        mop,
+        spawn,
+        attack
     }
+
+
+[System.Serializable]
+public class Waiter {
+    public float x;
+    public float y;
+
+    public float seconds = 1;
+    public bool skip;
+    public Animations animation;
+}
 
 [System.Serializable]
 public class Profile{
@@ -35,7 +49,9 @@ public class Profile{
        public float frame_duration = 0.2f;
        public Vector2 start;
        public Vector2 end;
-    }
+
+       public List<Waiter> cycles;
+   }
 
     public Dictionary<Animations,Handler> animations;
 }

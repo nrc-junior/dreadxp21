@@ -16,6 +16,13 @@ public class EventsData : MonoBehaviour {
         _chuva = chuva_objs;
         _pregos = pregos;
         _meat = meat;
+        _DoorTriggers = doorTriggers;
+        _WaterAndSymbols = water_and_symbols;
+        _jerome = jerome;
+        _jeromedead = jeromedead;
+        _leaveTrigger = leave_triggers;
+        _table = table;
+
     }
 
     public static void Attribuate() {
@@ -28,7 +35,6 @@ public class EventsData : MonoBehaviour {
     }
     public static void Teleport(Person actor, Vector3 pos) {
         puppet[actor].position = pos;
-        print("teleported "+ actor);
     }
     
 
@@ -46,7 +52,8 @@ public class EventsData : MonoBehaviour {
     /// <param name="anim">enum Animations = nome da animação, se não tiver = Idle</param>
     public static void SetAnimation(Person name, Animations anim) => _actor[name].SetAnimation(anim);
 
-    //public static void Authorize(bool authorization)
+    public static void GiveItem(int id) => InventoryControl.i.AddItem(id);
+    
     
     // DAY 2 EVENTS ATRIBUTES
     public GameObject artefact;
@@ -60,6 +67,7 @@ public class EventsData : MonoBehaviour {
     private static GameObject _vGO;
     private static VideoPlayer _vPlayer;
     public static void d3_playvideo() {
+
      _vGO.SetActive(true);
      _vPlayer.Play();
      _vGO.GetComponent<Animator>().Play("anim");
@@ -86,5 +94,49 @@ public class EventsData : MonoBehaviour {
     public GameObject meat;
     private static GameObject _meat;
     public static void SetMeat(bool c) => _meat.SetActive(c);
+    
+    // DAY 5 EVENTS ATRIBUTES
+    public GameObject[] doorTriggers;
+    private static GameObject[] _DoorTriggers;
+    public GameObject[] water_and_symbols;
+    private static GameObject[] _WaterAndSymbols;
+    public static void Inundation(bool c) {
+        foreach (var o in _WaterAndSymbols) o.SetActive(c);
+        if(!c) return;
+        foreach (var o in _DoorTriggers) o.SetActive(false);
+    }
+    public GameObject bloodsymbols;
+    static GameObject _bloodsymbols;
 
+    public GameObject jerome;
+    public GameObject jeromedead;
+    static GameObject _jerome;
+    static GameObject _jeromedead;
+    public static void EnableBloodSymbols() => _bloodsymbols.SetActive(true);
+
+    public static void JeromeDead(bool c) {
+        _jerome.SetActive(!c);
+        _jeromedead.SetActive(c);
+    }
+    
+    // DAY 6 ATRIBUTES
+
+    private static GameObject _leaveTrigger; 
+    public GameObject leave_triggers;
+    private static GameObject _table; 
+    public GameObject table;
+
+    
+    
+    private static GameObject[] _EndingTriggers; 
+    public GameObject[] ending_triggers;
+
+    //true = cabine  | false = submarino
+    public static void LeaveTrigger(bool c) {
+        _leaveTrigger.SetActive(c);
+        _table.SetActive(true);
+    }
+
+    
+    
 }

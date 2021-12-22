@@ -36,10 +36,12 @@ public class Moving : MonoBehaviour {
     }
 
     void Update() {
-        if (dialogueUI.IsOpen) return;
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Interactable?.Interact(this);
+        if (dialogueUI != null) {
+            if (dialogueUI.IsOpen) return;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Interactable?.Interact(this);
+            }
         }
         Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (dir.x < 0 && right) {

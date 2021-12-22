@@ -53,7 +53,7 @@ public class RoomHandler : MonoBehaviour {
     private bool dark;
 
     private Dictionary<Room, GameObject> room;
-    private void Start() {
+    private void Awake() {
         room = new Dictionary<Room, GameObject>();
         var r = FindObjectsOfType<Rooms>();
         foreach (var trigger in r) {
@@ -66,11 +66,16 @@ public class RoomHandler : MonoBehaviour {
 
         Room isIn = DataManager.playerIsIn;
         foreach (var key in room.Keys) {
+            if (Room.hospital == key)
+            {
+                print("oi");
+            }
             if(isIn == key) continue;
             room[key].SetActive(false);
         }
     }
 
+    private float event_clock;
     private void Update() {
         if(!fade) return;
 
@@ -88,9 +93,20 @@ public class RoomHandler : MonoBehaviour {
                 disable.SetActive(false);
                 player.transform.position = pos;
                 SoundManager.PlaySound(SoundManager.Sound.door, -1, pos,5);
+                if (triggerevent) {
+                    event_clock = Time.time + 3;
+                    if (LoadRoom != null) LoadRoom();
+                }
                 return;
             }
         } else {
+            if (triggerevent) {
+                if (Time.time > event_clock) {
+                    triggerevent = false;
+                    event_clock = 0;
+                    return;
+                }
+            }
             if (alpha < 1) {
                 alpha += Time.deltaTime * seconds/2; 
                 var c = screen.color;
@@ -108,10 +124,9 @@ public class RoomHandler : MonoBehaviour {
     public delegate void RoomChange();
   public static event RoomChange LoadRoom;
 
+  static bool triggerevent;
     public static void Fire() {
-        if (LoadRoom != null) {
-            LoadRoom();
-        }
+        triggerevent = true;
     }
 
 }
